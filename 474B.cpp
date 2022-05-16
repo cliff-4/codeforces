@@ -1,29 +1,39 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main() {
-	int n, m, *pilesarray, *juicyworms;
-	pilesarray = new int[n];
-	juicyworms = new int[m];
-
+	int n, m;
 	cin >> n;
-	for (int i = 0; i < n; i++) cin >> pilesarray[i];
+	vector<int> worms, tastyworm;
+	for (int i = 0; i < n; i++) {
+		int buff;
+		cin >> buff;
+		worms.push_back(buff);
+	}
 	cin >> m;
-	for (int i = 0; i < m; i++) cin >> juicyworms[i];
+	for (int i = 0; i < m; i++) {
+		int buff;
+		cin >> buff;
+		tastyworm.push_back(buff);
+	}
+
+	int *odomos = new int[m]{};
+	
+
+	// have to optimize this bit of code. it's taking too long.
+	for (int i = 0; i < m; i++) {
+		int j;
+		for (j = 0; (tastyworm[i] > 0) && (j < n); j++) {
+			tastyworm[i] -= worms[j];
+		}
+		odomos[i] = j;
+	}
+	//
 
 	for (int i = 0; i < m; i++) {
-		int worm = juicyworms[i];
-		int pile = 1;
-		for (int j = 0; j < n; j++) {
-			if (juicyworms[i] > pilesarray[j]) {
-				juicyworms[i] -= pilesarray[j];
-				pile++;
-			}
-			else break;
-
-		}
-		cout << pile << endl;
+		cout << odomos[i] << endl;
 	}
 
 }
