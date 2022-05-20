@@ -8,8 +8,7 @@ int main() {
 
 
 /*
-executing via powershell:
-cd to this directory
+cd to the directory
 $problem='template'
 g++ -g .\$problem.cpp -o .\$problem.exe && & .\$problem.exe
 */
