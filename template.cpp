@@ -6,7 +6,6 @@ int main() {
 	cout << "OK" << endl;
 }
 
-
 /*
 cd to the directory
 $problem='template'
